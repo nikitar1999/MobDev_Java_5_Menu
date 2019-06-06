@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">MenuDemoJava</string>
+    <string name="app_name">Угадай число!</string>
+    <string name="behind">Недолет!</string>
+    <string name="ahead">Перелет!</string>
+    <string name="hit">В точку!</string>
+    <string name="input_value">Ввести значение</string>
+    <string name="play_more">Сыграть еще</string>
+    <string name="try_to_guess">Попробуйте угадать число (1 – %1$d)</string>
+    <string name="error">Неверный ввод!</string>
+    <string name="out_of_range">Указано число вне диапазона. Попробуйте еще раз.</string>
 </resources>

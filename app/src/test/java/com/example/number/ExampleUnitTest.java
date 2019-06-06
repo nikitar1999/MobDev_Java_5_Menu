@@ -1,4 +1,4 @@
-package com.example.menudemojava;
+package com.example.number;
 
 import org.junit.Test;
 

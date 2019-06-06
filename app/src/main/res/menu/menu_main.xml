@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_newgame"
+        android:orderInCategory="100"
+        android:title="Новая игра"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_difficulty"
+        android:orderInCategory="110"
+        android:title="Сложность"
+        app:showAsAction="never">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/difficulty_easy"
+                    android:title="Легко" />
+                <item android:id="@+id/difficulty_hard"
+                    android:title="Cложно" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="120"
+        android:title="Выход"
+        app:showAsAction="never" />
+
+</menu>
