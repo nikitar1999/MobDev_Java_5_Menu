@@ -14,10 +14,28 @@
             android:layout_height="match_parent" >
 
             <TextView
+                android:id="@+id/mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100sp"
+                android:layout_marginLeft="10sp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/easyMode"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/try_to_guess" />
+                android:layout_marginLeft="70sp"
+                android:text="@string/try_to_guess"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -26,6 +44,8 @@
 
             <EditText
                 android:id="@+id/editText"
+                android:layout_marginTop="100sp"
+                android:layout_marginLeft="70sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -41,14 +61,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
+                android:layout_marginLeft="70sp"
                 android:text="@string/input_value" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/hardMode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="playMore"
-                android:text="@string/play_more" />
+                android:onClick="onClick"
+                android:layout_marginLeft="70sp"
+                android:text="@string/hard" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/easyMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:layout_marginLeft="70sp"
+                android:text="@string/easy" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:layout_marginLeft="70sp"
+                android:text="@string/menu_exit" />
         </TableRow>
     </TableLayout>
 
