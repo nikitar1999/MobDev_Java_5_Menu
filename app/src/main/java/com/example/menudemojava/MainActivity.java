@@ -4,16 +4,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CheckBox;
+//import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     // Элементы экрана
-    TextView tv;
-    CheckBox chb;
-
+    TextView tvInfo, mode;
+    EditText etInput;
+    Button bControl, exit, hardMode, easyMode;
+    Random rand = new Random();
+    int number = rand.nextInt(100) + 1;
+    int maxValue = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +27,67 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // находим элементы
-        tv = (TextView) findViewById(R.id.textView);
-        chb = (CheckBox) findViewById(R.id.chbExtMenu);
+        tvInfo = findViewById(R.id.textView);
+        etInput = findViewById(R.id.editText);
+        bControl = findViewById(R.id.button);
+        exit = findViewById(R.id.exit);
+        hardMode = findViewById(R.id.hardMode);
+        easyMode = findViewById(R.id.easyMode);
+        mode = findViewById(R.id.mode);
+        mode.setText(getString(R.string.easyMode));
+    }
 
+    public void onClick(View view) {
+
+        View.OnClickListener clickListenerExit = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
+            }
+        };
+
+        exit.setOnClickListener(clickListenerExit);
+
+
+        View.OnClickListener clickListenerHardMode = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number = rand.nextInt(10000) + 1;
+                maxValue = 10000;
+                mode.setText(getString(R.string.mode));
+            }
+        };
+        hardMode.setOnClickListener(clickListenerHardMode);
+
+        View.OnClickListener clickListenerEasyMode = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number = rand.nextInt(100) + 1;
+                maxValue = 100;
+                mode.setText(getString(R.string.easyMode));
+            }
+        };
+        easyMode.setOnClickListener(clickListenerEasyMode);
+
+        if (etInput.getText().toString().length()==0){
+            tvInfo.setText(getString(R.string.suggestion));
+        }
+        else {
+            int value = Integer.parseInt(etInput.getText().toString());
+            if ((value < 1) || (value > maxValue)) {
+                tvInfo.setText(getString(R.string.errorValue));
+            }
+            else if (value < number) {
+                tvInfo.setText("Больше");
+            }
+            else if (value > number) {
+                tvInfo.setText("Меньше");
+            }
+            else {
+                tvInfo.setText("Ура! Угадал!");
+            }
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -31,31 +95,43 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
-    // обновление меню
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // TODO Auto-generated method stub
-        // пункты меню с ID группы = 1 видны, если в CheckBox стоит галка
-        menu.setGroupVisible(1, chb.isChecked());
-        return super.onPrepareOptionsMenu(menu);
-    }
-
     // обработка нажатий
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
-        StringBuilder sb = new StringBuilder();
 
-        // Выведем в TextView информацию о нажатом пункте меню
-        sb.append("Item Menu");
-        sb.append("\r\n groupId: " + String.valueOf(item.getGroupId()));
-        sb.append("\r\n itemId: " + String.valueOf(item.getItemId()));
-        sb.append("\r\n order: " + String.valueOf(item.getOrder()));
-        sb.append("\r\n title: " + item.getTitle());
-        tv.setText(sb.toString());
+        if (item.getTitle().toString().equals("Выход")){
+            finish();
+            System.exit(0);
+        }
 
+        if (item.getTitle().toString().equals("Легкий режим")){
+            mode.setText(getString(R.string.easyMode));
+            tvInfo.setText(getString(R.string.suggestion));
+            etInput.setText("");
+            number = rand.nextInt(100) + 1;
+            maxValue = 100;
+        }
+
+        if (item.getTitle().toString().equals("Сложный режим")){
+            mode.setText(getString(R.string.mode));
+            tvInfo.setText(getString(R.string.suggestion));
+            etInput.setText("");
+            number = rand.nextInt(10000) + 1;
+            maxValue = 10000;
+        }
+
+        if (item.getTitle().toString().equals("Новая игра")){
+            tvInfo.setText(getString(R.string.suggestion));
+            etInput.setText("");
+            if (mode.getText().toString().equals(getString(R.string.easyMode))){
+                number = rand.nextInt(100) + 1;
+                maxValue = 100;
+            }
+            else {
+                number = rand.nextInt(10000) + 1;
+                maxValue = 10000;
+            }
+        }
         return super.onOptionsItemSelected(item);
     }
-
 }

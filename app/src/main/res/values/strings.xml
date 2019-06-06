@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">MenuDemoJava</string>
+    <string name="app_name">Угадай число!</string>
+    <string name="new_game">Новая игра</string>
+    <string name="easy_mode">Легкий режим</string>
+    <string name="hard_mode">Сложный режим</string>
+    <string name="input_value">Ввести значение</string>
+    <string name="play_more">Сыграть еще</string>
+    <string name="try_to_guess">Попробуйте угадать число (1 – 100)</string>
+    <string name="error">Неверный ввод!</string>
+    <string name="mode">Сложный режим. Угадай число от 1 до 10000</string>
+    <string name="suggestion">Введите свое предположение</string>
+    <string name="errorValue">Введите число, входящее в указанный диапазон</string>
+    <string name="easyMode">Легкий режим. Угадай число от 1 до 100</string>
+    <string name="hard">Сложный режим</string>
+    <string name="easy">Простой режим</string>
+    <string name="menu_exit">Выход</string>
 </resources>

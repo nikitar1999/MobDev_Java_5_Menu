@@ -2,34 +2,25 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_add"
-        android:title="add">
+        android:id="@+id/new_game"
+        android:title="@string/new_game">
     </item>
     <item
-        android:id="@+id/menu_edit"
-        android:title="edit">
-    </item>
-    <item
-        android:id="@+id/menu_delete"
+        android:id="@+id/exit"
         android:orderInCategory="3"
-        android:title="delete">
+        android:title="@string/menu_exit">
     </item>
     <group
         android:id="@+id/group1">
         <item
-            android:id="@+id/menu_copy"
+            android:id="@+id/easy_mode"
             android:orderInCategory="1"
-            android:title="copy">
+            android:title="@string/easy_mode">
         </item>
         <item
-            android:id="@+id/menu_paste"
+            android:id="@+id/hard_mode"
             android:orderInCategory="2"
-            android:title="paste">
-        </item>
-        <item
-            android:id="@+id/menu_exit"
-            android:orderInCategory="4"
-            android:title="exit">
+            android:title="@string/hard_mode">
         </item>
     </group>
 </menu>
